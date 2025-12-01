@@ -1,7 +1,8 @@
 :root {
     --verde: #20B548;
     --rosa: #df4ab7;
-    --negro: #000000;
+    --negro: #0F141B;
+    --cian: #35D7D7;
 }
 
 @font-face {
@@ -26,10 +27,14 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(to bottom, var(--verde) 10%, var(--negro) 90%);
-    min-height: 300vh;
+    background: linear-gradient(to bottom, var(--verde) 10%, var(--negro) 20%);
+    min-height: 600vh;
     font-family: 'akira';
     font-size: 1.1rem;
+}
+
+.colored-text {
+    color: var(--cian);
 }
 
 .vestigium-title {
@@ -55,9 +60,10 @@ body {
 
 .flip-container {
     perspective: 1000px;
-    width: 600px;
-    height: 350px;
+    width: 40vw;
+    height: 60vh;
     margin: 20px;
+    font-size: 1.5rem;
 }
 
 .flipper {
@@ -68,6 +74,11 @@ body {
     transition: transform 0.6s;
     transform-style: preserve-3d;
     cursor: pointer;
+}
+
+.sub-title {
+    color: white;
+    font-family: "techno";
 }
 
 .flip-container:hover .flipper {
@@ -97,4 +108,151 @@ body {
     background-color: var(--verde);
     color: white;
     transform: rotateY(180deg);
+}
+
+.views-title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.views {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--verde);
+    width: 70vw;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 5px rgba(0, 255, 0, 0.5);
+}
+
+.view-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex: 1;
+    margin: 30px;
+    text-align: center;
+    transition: background-color 0.6s;
+    border-radius: 10px;
+}
+
+.symbol {
+    height: 25vh;
+    width: auto;
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+
+.view-item:hover {
+    background-color: var(--rosa);
+}
+
+@media (max-width: 768px) {
+    .views {
+        flex-direction: column;
+        width: 90vw;
+    }
+
+    .view-item {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .symbol {
+        height: 15vh;
+    }
+}
+
+.presentation {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 70vw;
+    height: auto;
+}
+
+.all-demo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.demo-button {
+    cursor: pointer;
+    height: 15vh;
+    width: 30vw;
+    font-family: "akira";
+    background-color: var(--verde);
+    font-size: 3rem;
+    border-radius: 10px;
+    transition: background-color 0.6s,
+        color 0.6s;
+}
+
+.demo-button:hover {
+    background-color: var(--rosa);
+    color: white;
+}
+
+.faq-item {
+    margin-bottom: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--verde) 0%, var(--rosa) 100%);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: all 0.6s;
+}
+
+.faq-question:hover {
+    background: linear-gradient(135deg, var(--cian) 0%, #667eea 100%);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 20px;
+    background: var(--rosa);
+    line-height: 1.6;
+    color: white;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 1000px;
+    opacity: 1;
+    transform: translateY(0);
+    padding: 20px;
+}
+
+.faq-icon {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: bold;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.questions {
+    margin-bottom: 30vh;
 }
